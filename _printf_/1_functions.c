@@ -23,14 +23,14 @@ int print_d(va_list intgrs)
 		numOfStr[i++] = num % 10 + '0';
 		num /= 10;
 	}
-	while (num > 0);
-
+	while (num > 0)
+	{
 	if (ifNegative)
 		numOfStr[i++] = '-';
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		_putchar(numOfStr[j]);
+		our_putchar(numOfStr[j]);
 		chrt_count++;
 	}
 	return (chrt_count);
@@ -59,13 +59,14 @@ int print_i(va_list intgrs)
 		numOfStr[i++] = num % 10 + '0';
 		num /= 10;
 	}
-	while (num > 0);
-
+	while (num > 0)
+	{
 	if (ifNegative)
 		numOfStr[i++] = '-';
+	}
 	for (j = i - 1; j >= 0; j--)
 	{
-		_putchar(numOfStr[j]);
+		our_putchar(numOfStr[j]);
 		chrt_count++;
 	}
 	return (chrt_count);

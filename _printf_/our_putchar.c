@@ -3,10 +3,10 @@
 /**
   * _putchar - prints a character
   * @c: expected input
-  * Return: 1 
+  * Return: 1
   */
 
-int _putchar(char c)
+int our_putchar(char c)
 {
-	return(write(1, &c, 1));
+	return (write(1, &c, 1));
 }

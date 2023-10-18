@@ -23,7 +23,7 @@ int print_b(va_list binry)
 
 	for (j = 0; j < 32; j++)
 	{
-		_putchar(binary[j]);
+		our_putchar(binary[j]);
 		chrts_count++;
 	}
 	return (chrts_count);

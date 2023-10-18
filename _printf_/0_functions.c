@@ -10,7 +10,7 @@ int print_c(va_list chrt)
 {
 	char c = va_arg(chrt, int);
 
-	_putchar(c);
+	our_putchar(c);
 
 	return (1);
 }
@@ -33,7 +33,7 @@ int print_s(va_list strg)
 
 	while (*strings)
 	{
-		_putchar(*strings);
+		our_putchar(*strings);
 		s_count++;
 		strings++;
 	}
@@ -51,7 +51,7 @@ int print_perct(va_list perct)
 {
 	(void)perct;
 
-	_putchar('%');
+	our_putchar('%');
 
 	return (1);
 }
