@@ -48,7 +48,8 @@ int print_d(va_list intgrs)
 
 /**
   * print_i - prints an integer
-
+  * @intgrs: variable placeholder
+  * Return: 0
   */
 int print_i(va_list intgrs)
 {
