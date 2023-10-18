@@ -5,6 +5,18 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+/**
+ * struct char_print - print data
+ * @c: char
+ * @func_ptr: function printer
+ */
+typedef struct char_print
+{
+	char *c;
+	int (*func_ptr)(va_list arg);
+} print_dc;
+
+/* function prototypes */
 int our_putchar(char c);
 int our_puts(char *c);
 int _printf(const char *format, ...);

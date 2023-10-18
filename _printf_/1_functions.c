@@ -20,6 +20,12 @@ int print_d(va_list intgrs)
 		num = -num;
 	}
 
+	if (num == 0)
+	{
+		our_putchar('0');
+		return (1);
+	}
+
 	while (num > 0)
 	{
 		numOfStr[i++] = num % 10 + '0';
@@ -28,7 +34,8 @@ int print_d(va_list intgrs)
 
 	if (ifNegative)
 	{
-		numOfStr[i++] = '-';
+		our_putchar('-');
+		chrt_count++;
 	}
 
 	for (j = i - 1; j >= 0; j--)
@@ -58,6 +65,12 @@ int print_i(va_list intgrs)
 		num = -num;
 	}
 
+	if (num == 0)
+	{
+		our_putchar('0');
+		return (1);
+	}
+
 	while (num > 0)
 	{
 		numOfStr[i++] = num % 10 + '0';
@@ -66,7 +79,8 @@ int print_i(va_list intgrs)
 
 	if (ifNegative)
 	{
-		numOfStr[i++] = '-';
+		our_putchar('-');
+		chrt_count++;
 	}
 
 	for (j = i - 1; j >= 0; j--)
