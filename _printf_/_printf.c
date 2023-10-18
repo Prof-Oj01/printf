@@ -8,39 +8,71 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, s_count, count = 0;
+    va_list args;
+    int count = 0;
+    int i = 0;
 
-	va_list args;
+    if (!format)
+        return (-1);
+  
+    va_start(args, format);
 
-	if (!format || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
+    for (; format[i]; i++)
+    {
+        if (format[i] != '%')
+        {
+            our_putchar(format[i]);
+            count++;
+        }
+        else
+        {
+            i++;
+            if (format[i] == 'c')
+            {
+                our_putchar(va_arg(args, int));
+                count++;
+            }
+            else if (format[i] == 's')
+            {
+                char *str = va_arg(args, char *);
+                if (!str)
+                    str = "(null)";
+                for (; *str; str++)
+                {
+                    our_putchar(*str);
+                    count++;
+                }
+            }
+            else if (format[i] == '%')
+            {
+                our_putchar('%');
+                count++;
+            }
+            else if (format[i] == 'd' || format[i] == 'i')
+            {
+                int num = va_arg(args, int);
+                int divisor = 1;
 
-	va_start(args, format);
+                if (num < 0)
+                {
+                    our_putchar('-');
+                    count++;
+                    num = -num;
+                }
 
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] != '%')
-		{
-			our_putchar(format[i]);
-		}
-		else if (format[i] == '%' && format[i + 1] == 'c')
-		{
-			our_putchar(va_arg(args, int));
-			i++;
-		}
-		else if (format[i] == '%' && format[i + 1] == 's')
-		{
-			s_count = our_puts(va_arg(args, char *));
-			i++;
-			count += (s_count - 1);
-		}
-		else if (format[i + 1] == '%')
-		{
-			our_putchar('%');
-		}
-		count += 1;
-	}
+                for (; num > 0; num /= divisor, divisor /= 10)
+                {
+                    divisor = 1;
+                    for (; num / divisor > 0; divisor *= 10)
+                        ;
+                    our_putchar('0' + num / divisor);
+                    count++;
+                }
+            }
+        }
+    }
 
-	va_end(args);
-	return (count);
+    va_end(args);
+    return count;
 }
+
