@@ -52,6 +52,7 @@ int _printf(const char *format, ...)
             {
                 int num = va_arg(args, int);
                 int divisor = 1;
+		int num_copy = num;
 
                 if (num < 0)
                 {
@@ -60,13 +61,16 @@ int _printf(const char *format, ...)
                     num = -num;
                 }
 
-                for (; num > 0; num /= divisor, divisor /= 10)
+		while (num_copy / 10 != 0)
+		{
+		     num_copy /= 10;
+		     divisor *= 10;
+		}
+                for (; divisor > 0; divisor /= 10)
                 {
-                    divisor = 1;
-                    for (; num / divisor > 0; divisor *= 10)
-                        ;
-                    our_putchar('0' + num / divisor);
+		    our_putchar('0' + num / divisor);
                     count++;
+		    num %= divisor;
                 }
             }
         }
