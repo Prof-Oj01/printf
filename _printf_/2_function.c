@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
   * print_b - prints a binary
   * @binry: variable placeholder

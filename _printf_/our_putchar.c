@@ -1,7 +1,6 @@
 #include "main.h"
-
 /**
-  * _putchar - prints a character
+  * our_putchar - prints a character
   * @c: expected input
   * Return: 1
   */

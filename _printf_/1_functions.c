@@ -19,14 +19,17 @@ int print_d(va_list intgrs)
 		ifNegative = 1;
 		num = -num;
 	}
-	do {
+
+	while (num > 0)
+	{
 		numOfStr[i++] = num % 10 + '0';
 		num /= 10;
 	}
-	while (num > 0)
-	{
+
 	if (ifNegative)
+	{
 		numOfStr[i++] = '-';
+	}
 
 	for (j = i - 1; j >= 0; j--)
 	{
@@ -38,8 +41,7 @@ int print_d(va_list intgrs)
 
 /**
   * print_i - prints an integer
-  * @intgrs: integer variable
-  * Return: 0
+
   */
 int print_i(va_list intgrs)
 {
@@ -55,15 +57,18 @@ int print_i(va_list intgrs)
 		ifNegative = 1;
 		num = -num;
 	}
-	do {
+
+	while (num > 0)
+	{
 		numOfStr[i++] = num % 10 + '0';
 		num /= 10;
 	}
-	while (num > 0)
-	{
+
 	if (ifNegative)
+	{
 		numOfStr[i++] = '-';
 	}
+
 	for (j = i - 1; j >= 0; j--)
 	{
 		our_putchar(numOfStr[j]);

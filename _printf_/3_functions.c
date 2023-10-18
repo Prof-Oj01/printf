@@ -17,8 +17,7 @@ void print_u(va_list unsign, int *count)
 	do {
 		buffer[i++] = '0' + a % 10;
 		a /= 10;
-	}
-	while (a)
+	} while (a);
 
 	for (j = i - 1; j >= 0; j--)
 	{
@@ -44,8 +43,7 @@ void print_o(va_list octal, int *count)
 	do {
 		buffer[j++] = '0' + (h & 7);
 		h >>= 3;
-	}
-	while (h)
+	} while (h);
 
 	for (g = j - 1; g >= 0; g--)
 	{
@@ -73,8 +71,7 @@ void print_x(va_list hexa, int *count)
 	do {
 		buffer[d++] = hex_chars[m & 0xf];
 		m >>= 4;
-	}
-	while (m)
+	} while (m);
 
 	for (f = d - 1; f >= 0; f--)
 	{
@@ -103,8 +100,7 @@ void print_X(va_list hexadec, int *count)
 	do {
 		buffer[d++] = hex_chars[m & 0xf];
 		m >>= 4;
-	}
-	while (m)
+	} while (m);
 
 	for (f = d - 1; f >= 0; f--)
 	{
