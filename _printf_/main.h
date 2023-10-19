@@ -20,6 +20,7 @@ typedef struct char_print
 int our_putchar(char c);
 int our_puts(char *c);
 int _printf(const char *format, ...);
+int _cprintf(const char *format, ...);
 int print_c(va_list chrt);
 int print_s(va_list strg);
 int print_perct(va_list perct);
