@@ -27,7 +27,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			if (format[i] == 'c')
+			if (format[i] == 'b')
+			{
+				count += print_b(args);
+			}
+			else if (format[i] == 'c')
 			{
 				our_putchar(va_arg(args, int));
 				count++;
