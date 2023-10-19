@@ -9,21 +9,39 @@ int print_b(va_list binry)
 {
 	unsigned int num = va_arg(binry, unsigned int);
 	int chrts_count = 0;
-	int i, j;
+	int k, i;
+	int initial = 0;
 
-	char binary[33];
+	char binary[32];
 
-	for (i = 31; i >= 0; i--)
+	for (k = 31; k >= 0; k--)
 	{
-		binary[i] = (num & 1) ? '1' : '0';
-		num >>= 1;
+		if ((num >> k) & 1)
+		{
+			initial = 1;
+		}
+
+		if(initial)
+		{
+			binary[31 - k] = ((num >> k) & 1) ? '1' : '0';
+		}
 	}
+
 	binary[32] = '\0';
 
-	for (j = 0; j < 32; j++)
+	if(initial)
 	{
-		our_putchar(binary[j]);
+		for (i = 0; i < 32; i++)
+		{
+			our_putchar(binary[i]);
+			chrts_count++;
+		}
+	}
+	else
+	{
+		our_putchar('0');
 		chrts_count++;
 	}
+
 	return (chrts_count);
 }
