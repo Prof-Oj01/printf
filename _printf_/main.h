@@ -19,6 +19,7 @@ typedef struct char_print
 /* function prototypes */
 int our_putchar(char c);
 int our_puts(char *c);
+int our_printint(int aint);
 int _printf(const char *format, ...);
 int _cprintf(const char *format, ...);
 int print_c(va_list chrt);
