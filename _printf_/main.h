@@ -33,7 +33,9 @@ void print_u(va_list unsign, int *count);
 void print_o(va_list octal, int *count);
 void print_x(va_list hexa, int *count);
 void print_X(va_list hexadec, int *count);
-
+int print_S(va_list strng);
+int print_p(va_list pnters);
+int print_r(va_list reverse);
 
 
 #endif

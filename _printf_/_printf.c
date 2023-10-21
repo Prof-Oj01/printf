@@ -79,6 +79,34 @@ int _printf(const char *format, ...)
 					num %= divisor;
 				}
 			}
+			else if (format[i] == 'u')
+			{
+				print_u(args, &count);
+			}
+			else if (format[i] == 'o')
+			{
+				print_o(args, &count);
+			}
+			else if (format[i] == 'x')
+			{
+				print_x(args, &count);
+			}
+			else if (format[i] == 'X')
+			{
+				print_X(args, &count);
+			}
+			else if (format[i] == 'S')
+			{
+				count += print_S(args);
+			}
+			else if (format[i] == 'p')
+			{
+				count += print_p(args);
+			}
+			else if (format[i] == 'r')
+			{
+				count += print_r(args);
+			}
 		}
 	}
 
