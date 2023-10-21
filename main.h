@@ -8,5 +8,6 @@
 int _printf(const char *format, ...);
 int our_putchar(char c);
 int our_puts(char *c);
+int our_printint(int aint);
 
 #endif

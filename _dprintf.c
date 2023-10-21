@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 		{
-			i_count += our_putchar(va_arg(args, int));
+			i_count += our_printint(va_arg(args, int));
 			i++;
 			count += (i_count - 1);
 		}
