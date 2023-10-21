@@ -9,13 +9,12 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, s_count, count = 0;
+	unsigned int i, s_count, i_count, count = 0;
 
 	va_list args;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
 	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
@@ -36,6 +35,16 @@ int _printf(const char *format, ...)
 			count += (s_count - 1);
 		}
 		else if (format[i + 1] == '%')
+		{
+			our_putchar('%');
+		}
+		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		{
+			i_count += our_putchar(va_arg(args, int));
+			i++;
+			count += (i_count - 1);
+		}
+		else
 		{
 			our_putchar('%');
 		}
