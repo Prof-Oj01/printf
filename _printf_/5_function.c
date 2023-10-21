@@ -38,5 +38,4 @@ int print_S(va_list strng)
 	}
 
 	return (chars_count);
-
 }
