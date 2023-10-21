@@ -12,6 +12,7 @@ int print_p(va_list pnters)
 	int chars_count = 0;
 	char hexa_chars[] = "0123456789abcdef";
 	int g;
+	int leading_zeros = 1;
 
 	our_putchar('0');
 	our_putchar('x');
@@ -19,8 +20,13 @@ int print_p(va_list pnters)
 
 	for (g = (sizeof(void *) * 2 - 1); g >= 0; g--)
 	{
-		our_putchar(hexa_chars[((unsigned long) ptr >> (g * 4)) & 0xF]);
-		chars_count++;
+		unsigned char nibble = ((unsigned long)ptr >> (g * 4)) & 0xF;
+		if (nibble != 0 || leading_zeros == 0 )
+		{
+			leading_zeros = 0;
+			our_putchar(hexa_chars[nibble]);
+			chars_count++;
+		}
 	}
 
 	return (chars_count);

@@ -101,7 +101,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 'p')
 			{
-				count += print_p(args);
+				print_p(args);
 			}
 			else if (format[i] == 'r')
 			{
